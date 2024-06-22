@@ -132,4 +132,6 @@ playground/data/eval/
 
 data
 data_eccv
-finetune
+finetune/output
+finetune/val
+finetune/test
