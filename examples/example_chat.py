@@ -14,7 +14,7 @@ parser.add_argument("--dtype", default='fp16', type=str)
 args = parser.parse_args()
 
 # init model and tokenizer
-model = AutoModel.from_pretrained('internlm/internlm-xcomposer2-vl-7b', trust_remote_code=True).eval()
+model = AutoModel.from_pretrained('/home/qmli/models/internlm-xcomposer2-vl-7b', trust_remote_code=True).eval()
 if args.dtype == 'fp16':
     model.half().cuda()
 elif args.dtype == 'fp32':
@@ -25,10 +25,10 @@ if args.num_gpus > 1:
     device_map = auto_configure_device_map(args.num_gpus)
     model = dispatch_model(model, device_map=device_map)
 
-tokenizer = AutoTokenizer.from_pretrained('internlm/internlm-xcomposer2-vl-7b', trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained('/home/qmli/models/internlm-xcomposer2-vl-7b', trust_remote_code=True)
 
 text = '<ImageHere>Please describe this image in detail.'
-image = 'examples/image1.webp'
+image = '/home/qmli/InternLM-XComposer-main/examples/image1.webp'
 with torch.cuda.amp.autocast():
     with torch.no_grad():
         response, _ = model.chat(tokenizer, query=text, image=image, history=[], do_sample=False)
