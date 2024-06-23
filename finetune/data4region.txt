@@ -1,0 +1,1 @@
+/home/qmli/InternLM-XComposer-main/data_eccv/train/split/converted_data_region_perception.json 20
