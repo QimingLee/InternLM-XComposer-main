@@ -9,7 +9,7 @@ torch.set_grad_enabled(False)
 
 model = AutoPeftModelForCausalLM.from_pretrained(
     # path to the output directory
-    '/home/qmli/InternLM-XComposer-main/finetune/output/finetune',
+    '/home/qmli/InternLM-XComposer-main/finetune/output/finetune_lowerLR_region',
     device_map="auto",
     trust_remote_code=True
 ).eval()
@@ -22,7 +22,7 @@ tokenizer = AutoTokenizer.from_pretrained('/home/qmli/models/internlm-xcomposer2
 # print(response)
 
 input_file = '/home/qmli/InternLM-XComposer-main/data_eccv/test/region_perception.jsonl'
-output_file = 'region_perception_answer.jsonl'
+output_file = '/home/qmli/InternLM-XComposer-main/result_eccv_workshop/split_lowerLR_2epoch_result/region_perception_answer.jsonl'
 i = 0
 with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
     for line in infile:
