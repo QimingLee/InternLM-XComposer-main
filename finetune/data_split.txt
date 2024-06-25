@@ -1,0 +1,1 @@
+/home/qmli/InternLM-XComposer-main/data_eccv/train/split/split_train_val_merge_data.json 38

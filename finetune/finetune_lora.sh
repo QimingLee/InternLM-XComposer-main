@@ -7,7 +7,7 @@ DIR=`pwd`
 # export MODEL="internlm/internlm-xcomposer2-4khd-7b"
 export MODEL="/home/qmli/models/internlm-xcomposer2-vl-7b"
 # export DATA="data.txt"
-export DATA="/home/qmli/InternLM-XComposer-main/finetune/data.txt"
+export DATA="/home/qmli/InternLM-XComposer-main/finetune/data_split.txt"
 
 GPUS_PER_NODE=1
 NNODES=1
@@ -33,7 +33,7 @@ torchrun $DISTRIBUTED_ARGS finetune.py \
     --fix_vit True \
     --fix_sampler True \
     --use_lora True \
-    --output_dir output/finetune_lowerLR \
+    --output_dir output/finetune_split \
     --num_train_epochs 2 \
     --batch_size 1 \
     --per_device_train_batch_size 1 \
@@ -42,7 +42,7 @@ torchrun $DISTRIBUTED_ARGS finetune.py \
     --evaluation_strategy "no" \
     --save_strategy "epoch" \
     --save_total_limit 1 \
-    --learning_rate 5e-6 \
+    --learning_rate 5e-5 \
     --weight_decay 0.1 \
     --adam_beta2 0.95 \
     --warmup_ratio 0.01 \
