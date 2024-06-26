@@ -32,10 +32,11 @@ def visualize_losses(metrics):
     plt.legend()
     plt.grid(True)
     plt.show()
-    plt.savefig('loss_lowerLR_plot.png', dpi=300, bbox_inches='tight')
+    plt.savefig('loss_split_plot.png', dpi=300, bbox_inches='tight')
 
 # 示例使用
-file_path = '/home/qmli/InternLM-XComposer-main/finetune/slurm-153588.out'  # 替换为您的日志文件路径
+# file_path = '/home/qmli/InternLM-XComposer-main/finetune/slurm-153588.out'  # 替换为您的日志文件路径 lowerLR
+file_path = '/home/qmli/InternLM-XComposer-main/finetune/slurm-154416.out'  # 替换为您的日志文件路径  split 5e-5
 extracted_metrics = extract_metrics_from_log(file_path)
 visualize_losses(extracted_metrics)
 
