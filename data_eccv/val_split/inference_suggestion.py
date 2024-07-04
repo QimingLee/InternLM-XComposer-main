@@ -22,7 +22,7 @@ tokenizer = AutoTokenizer.from_pretrained('/home/qmli/models/internlm-xcomposer2
 # print(response)
 
 input_file = '/home/qmli/InternLM-XComposer-main/data_eccv/val_split/suggestion.jsonl'
-output_file = '/home/qmli/InternLM-XComposer-main/result_eccv_workshop/all_train_val_split_val_result/driving_suggestion_answer.jsonl'
+output_file = '/home/qmli/InternLM-XComposer-main/result_eccv_workshop/base_general_split_val_result/driving_suggestion_answer.jsonl'
 i = 0
 with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
     for line in infile:
